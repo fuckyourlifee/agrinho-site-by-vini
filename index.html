@@ -8,7 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Canvas da chuva (fica atrás de tudo) -->
+  <!-- Splash / Intro Animation -->
+  <div id="splashOverlay">
+    <div class="splash-content">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='35' fill='%234CAF50'/%3E%3Cpath d='M40 15 C40 15 56 32 56 44 C56 56 48 64 40 64 C32 64 24 56 24 44 C24 32 40 15 40 15 Z' fill='%238BC34A'/%3E%3C/svg%3E" alt="Logo" class="splash-logo" />
+      <h1 class="splash-brand">AgriStrong</h1>
+      <div class="splash-loader"></div>
+    </div>
+  </div>
+
+  <!-- Canvas da chuva de fundo -->
   <canvas id="rainCanvas"></canvas>
 
   <header class="header">
@@ -18,16 +27,18 @@
         <span class="brand" data-i18n="brand">AgriStrong</span>
       </div>
       <nav class="nav" id="navMenu">
-        <a href="#home" data-i18n="navHome">Home</a>
-        <a href="#about" data-i18n="navAbout">About</a>
-        <a href="#sustainability" data-i18n="navSustain">Sustainability</a>
-        <a href="#contact" data-i18n="navContact">Contact</a>
-        <button class="btn-login stylish-btn" id="btnLogin" data-i18n="loginBtn">Login</button>
+        <a href="#" class="nav-link active" data-page="home" data-i18n="navHome">Home</a>
+        <a href="#" class="nav-link" data-page="explain" data-i18n="navExplain">Explanation</a>
+        <a href="#" class="nav-link" data-page="game" data-i18n="navGame">Game</a>
+        <a href="#" class="nav-link" data-page="login" data-i18n="navLogin">Login</a>
       </nav>
-      <div class="lang-switch">
-        <button class="lang-btn active-lang" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="pt">PT</button>
-        <button class="lang-btn" data-lang="es">ES</button>
+      <div class="toolbar">
+        <div class="lang-switch">
+          <button class="lang-btn active-lang" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <button class="device-toggle" id="deviceToggle" title="Toggle mobile preview">📱</button>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -35,75 +46,65 @@
     </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container">
-        <h1 data-i18n="heroTitle">Strong & Sustainable Agriculture</h1>
-        <p data-i18n="heroSub">Feeding the world while preserving the planet. Innovation, respect and productivity hand in hand.</p>
-        <a href="#about" class="btn-primary stylish-btn" data-i18n="heroCTA">Learn More</a>
+  <main id="mainContent">
+    <!-- HOME SCREEN -->
+    <section id="page-home" class="page active">
+      <div class="hero">
+        <div class="container">
+          <h1 data-i18n="heroTitle">Strong & Sustainable Agriculture</h1>
+          <p data-i18n="heroSub">Feeding the world while preserving the planet. Innovation, respect and productivity hand in hand.</p>
+        </div>
       </div>
-    </section>
-
-    <section id="about" class="section about">
-      <div class="container">
-        <h2 data-i18n="aboutTitle">Our Mission</h2>
-        <p data-i18n="aboutText">We connect technology, field knowledge and environmental responsibility to build a food system that is productive, fair and regenerative.</p>
+      <div class="section about">
+        <div class="container">
+          <h2 data-i18n="aboutTitle">Our Mission</h2>
+          <p data-i18n="aboutText">We connect technology, field knowledge and environmental responsibility to build a food system that is productive, fair and regenerative.</p>
+        </div>
       </div>
-    </section>
-
-    <section id="sustainability" class="section cards-section">
-      <div class="container">
-        <h2 data-i18n="cardsTitle">Sustainable Practices</h2>
-        <div class="cards-grid">
-          <div class="card interactive-card">
-            <div class="card-front">
-              <h3 data-i18n="card1Title">Regenerative Soil</h3>
-              <span class="card-hint" data-i18n="cardHint">Click to expand</span>
-            </div>
-            <div class="card-back">
-              <p data-i18n="card1Desc">Practices like no-till farming, cover crops and composting that restore organic matter.</p>
-            </div>
-          </div>
-          <div class="card interactive-card">
-            <div class="card-front">
-              <h3 data-i18n="card2Title">Smart Water Use</h3>
-              <span class="card-hint" data-i18n="cardHint">Click to expand</span>
-            </div>
-            <div class="card-back">
-              <p data-i18n="card2Desc">Drip irrigation, moisture sensors and rainwater harvesting.</p>
-            </div>
-          </div>
-          <div class="card interactive-card">
-            <div class="card-front">
-              <h3 data-i18n="card3Title">Agroforestry</h3>
-              <span class="card-hint" data-i18n="cardHint">Click to expand</span>
-            </div>
-            <div class="card-back">
-              <p data-i18n="card3Desc">Integrating trees with crops and livestock creates resilient ecosystems.</p>
-            </div>
-          </div>
-          <div class="card interactive-card">
-            <div class="card-front">
-              <h3 data-i18n="card4Title">Renewable Energy</h3>
-              <span class="card-hint" data-i18n="cardHint">Click to expand</span>
-            </div>
-            <div class="card-back">
-              <p data-i18n="card4Desc">Solar pumps, biodigesters and wind turbines lower carbon footprint.</p>
-            </div>
+      <div class="section cards-section">
+        <div class="container">
+          <h2 data-i18n="cardsTitle">Sustainable Practices</h2>
+          <div class="cards-grid">
+            <div class="card interactive-card"><div class="card-front"><h3 data-i18n="card1Title">Regenerative Soil</h3><span class="card-hint" data-i18n="cardHint">Click to expand</span></div><div class="card-back"><p data-i18n="card1Desc">Practices like no-till farming, cover crops and composting.</p></div></div>
+            <div class="card interactive-card"><div class="card-front"><h3 data-i18n="card2Title">Smart Water Use</h3><span class="card-hint" data-i18n="cardHint">Click to expand</span></div><div class="card-back"><p data-i18n="card2Desc">Drip irrigation, moisture sensors and rainwater harvesting.</p></div></div>
+            <div class="card interactive-card"><div class="card-front"><h3 data-i18n="card3Title">Agroforestry</h3><span class="card-hint" data-i18n="cardHint">Click to expand</span></div><div class="card-back"><p data-i18n="card3Desc">Integrating trees with crops and livestock.</p></div></div>
+            <div class="card interactive-card"><div class="card-front"><h3 data-i18n="card4Title">Renewable Energy</h3><span class="card-hint" data-i18n="cardHint">Click to expand</span></div><div class="card-back"><p data-i18n="card4Desc">Solar pumps, biodigesters and wind turbines.</p></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2 data-i18n="contactTitle">Get in Touch</h2>
-        <form class="contact-form" id="contactForm">
-          <input type="text" placeholder="Your name" data-i18n-placeholder="namePlaceholder" required />
-          <input type="email" placeholder="Your email" data-i18n-placeholder="emailPlaceholder" required />
-          <textarea rows="4" placeholder="Your message" data-i18n-placeholder="msgPlaceholder" required></textarea>
-          <button type="submit" class="btn-primary stylish-btn" data-i18n="sendBtn">Send Message</button>
+    <!-- EXPLANATION SCREEN -->
+    <section id="page-explain" class="page">
+      <div class="container explain-content">
+        <h2 data-i18n="explainTitle">What is Sustainable Agriculture?</h2>
+        <p data-i18n="explainText1">Sustainable agriculture is the practice of farming using principles that protect the environment, public health, and animal welfare. It integrates three main goals: environmental health, economic profitability, and social equity.</p>
+        <p data-i18n="explainText2">From crop rotation and organic fertilizers to agroforestry and precision irrigation, every technique aims to produce food without depleting natural resources or harming ecosystems.</p>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%232e7d32'/%3E%3Ccircle cx='200' cy='100' r='60' fill='%238bc34a'/%3E%3Ctext x='200' y='110' text-anchor='middle' fill='white' font-size='20'%3E🌱%3C/text%3E%3C/svg%3E" alt="Sustainable Farming" class="explain-img" />
+      </div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="page-game" class="page">
+      <div class="game-container">
+        <h2 data-i18n="gameTitle">Catch the Rain!</h2>
+        <p data-i18n="gameDesc">Move the bucket with ← → arrow keys (or touch/drag on mobile) and collect raindrops to water the field.</p>
+        <canvas id="gameCanvas" width="400" height="500"></canvas>
+        <div class="game-score" data-i18n="scoreLabel">Score: <span id="scoreDisplay">0</span></div>
+        <button class="stylish-btn" id="restartGame" data-i18n="restartGame">Restart</button>
+      </div>
+    </section>
+
+    <!-- LOGIN SCREEN -->
+    <section id="page-login" class="page">
+      <div class="login-screen">
+        <h2 data-i18n="loginTitle">Welcome Back</h2>
+        <form id="loginFormPage">
+          <input type="email" placeholder="Email" data-i18n-placeholder="emailLogin" required />
+          <input type="password" placeholder="Password" data-i18n-placeholder="passLogin" required />
+          <button type="submit" class="stylish-btn" data-i18n="loginSubmit">Login</button>
         </form>
+        <p class="login-footer" data-i18n="loginFooter">Forgot password? <a href="#">Reset here</a></p>
       </div>
     </section>
   </main>
@@ -113,20 +114,6 @@
       <p data-i18n="footerText">© 2026 AgriStrong – Strong Agro, Sustainable Future.</p>
     </div>
   </footer>
-
-  <!-- Login Modal -->
-  <div class="modal-overlay" id="loginModal">
-    <div class="modal">
-      <button class="modal-close" id="closeModal">&times;</button>
-      <h2 data-i18n="loginTitle">Welcome Back</h2>
-      <form id="loginForm">
-        <input type="email" placeholder="Email" data-i18n-placeholder="emailLogin" required />
-        <input type="password" placeholder="Password" data-i18n-placeholder="passLogin" required />
-        <button type="submit" class="btn-primary stylish-btn" data-i18n="loginSubmit">Login</button>
-      </form>
-      <p class="login-footer" data-i18n="loginFooter">Forgot password? <a href="#">Reset here</a></p>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
