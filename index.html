@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriStrong - Strong & Sustainable Agriculture</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='%234CAF50'/%3E%3Cpath d='M20 8 C20 8 28 16 28 22 C28 28 24 32 20 32 C16 32 12 28 12 22 C12 16 20 8 20 8 Z' fill='%238BC34A'/%3E%3C/svg%3E" alt="Logo" class="logo-img" />
+        <span class="brand" data-i18n="brand">AgriStrong</span>
+      </div>
+      <nav class="nav" id="navMenu">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#sustainability" data-i18n="navSustain">Sustainability</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        <button class="btn-login" id="btnLogin" data-i18n="loginBtn">Login</button>
+      </nav>
+      <div class="lang-switch">
+        <button class="lang-btn active-lang" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1 data-i18n="heroTitle">Strong & Sustainable Agriculture</h1>
+        <p data-i18n="heroSub">Feeding the world while preserving the planet. Innovation, respect and productivity hand in hand.</p>
+        <a href="#about" class="btn-primary" data-i18n="heroCTA">Learn More</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 data-i18n="aboutTitle">Our Mission</h2>
+        <p data-i18n="aboutText">We connect technology, field knowledge and environmental responsibility to build a food system that is productive, fair and regenerative. From soil health to smart irrigation, we believe in an agro that is economically viable and ecologically sound.</p>
+      </div>
+    </section>
+
+    <!-- Interactive Cards Section -->
+    <section id="sustainability" class="section cards-section">
+      <div class="container">
+        <h2 data-i18n="cardsTitle">Sustainable Practices</h2>
+        <div class="cards-grid">
+          <div class="card interactive-card">
+            <div class="card-front">
+              <h3 data-i18n="card1Title">Regenerative Soil</h3>
+              <span class="card-hint" data-i18n="cardHint">Click to expand</span>
+            </div>
+            <div class="card-back">
+              <p data-i18n="card1Desc">Practices like no-till farming, cover crops and composting that restore organic matter, sequester carbon and increase biodiversity.</p>
+            </div>
+          </div>
+          <div class="card interactive-card">
+            <div class="card-front">
+              <h3 data-i18n="card2Title">Smart Water Use</h3>
+              <span class="card-hint" data-i18n="cardHint">Click to expand</span>
+            </div>
+            <div class="card-back">
+              <p data-i18n="card2Desc">Drip irrigation, moisture sensors and rainwater harvesting systems that reduce consumption and protect water sources.</p>
+            </div>
+          </div>
+          <div class="card interactive-card">
+            <div class="card-front">
+              <h3 data-i18n="card3Title">Agroforestry</h3>
+              <span class="card-hint" data-i18n="cardHint">Click to expand</span>
+            </div>
+            <div class="card-back">
+              <p data-i18n="card3Desc">Integrating trees with crops and livestock creates resilient ecosystems, improves soil and diversifies production.</p>
+            </div>
+          </div>
+          <div class="card interactive-card">
+            <div class="card-front">
+              <h3 data-i18n="card4Title">Renewable Energy</h3>
+              <span class="card-hint" data-i18n="cardHint">Click to expand</span>
+            </div>
+            <div class="card-back">
+              <p data-i18n="card4Desc">Solar pumps, biodigesters and wind turbines lower carbon footprint and cut energy costs on the farm.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 data-i18n="contactTitle">Get in Touch</h2>
+        <form class="contact-form" id="contactForm">
+          <input type="text" placeholder="Your name" data-i18n-placeholder="namePlaceholder" required />
+          <input type="email" placeholder="Your email" data-i18n-placeholder="emailPlaceholder" required />
+          <textarea rows="4" placeholder="Your message" data-i18n-placeholder="msgPlaceholder" required></textarea>
+          <button type="submit" class="btn-primary" data-i18n="sendBtn">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footerText">© 2026 AgriStrong – Strong Agro, Sustainable Future.</p>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <h2 data-i18n="loginTitle">Welcome Back</h2>
+      <form id="loginForm">
+        <input type="email" placeholder="Email" data-i18n-placeholder="emailLogin" required />
+        <input type="password" placeholder="Password" data-i18n-placeholder="passLogin" required />
+        <button type="submit" class="btn-primary" data-i18n="loginSubmit">Login</button>
+      </form>
+      <p class="login-footer" data-i18n="loginFooter">Forgot password? <a href="#">Reset here</a></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
