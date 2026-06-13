@@ -11,23 +11,24 @@
   <!-- Splash / Intro Animation -->
   <div id="splashOverlay">
     <div class="splash-content">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='35' fill='%234CAF50'/%3E%3Cpath d='M40 15 C40 15 56 32 56 44 C56 56 48 64 40 64 C32 64 24 56 24 44 C24 32 40 15 40 15 Z' fill='%238BC34A'/%3E%3C/svg%3E" alt="Logo" class="splash-logo" />
+      <div class="splash-logo">🚜</div>
       <h1 class="splash-brand">AgriStrong</h1>
       <div class="splash-loader"></div>
     </div>
   </div>
 
-  <!-- Canvas da chuva de fundo -->
+  <!-- Chuva de fundo -->
   <canvas id="rainCanvas"></canvas>
 
   <header class="header">
     <div class="container">
       <div class="logo">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='%234CAF50'/%3E%3Cpath d='M20 8 C20 8 28 16 28 22 C28 28 24 32 20 32 C16 32 12 28 12 22 C12 16 20 8 20 8 Z' fill='%238BC34A'/%3E%3C/svg%3E" alt="Logo" class="logo-img" />
+        <span class="logo-icon">🚜</span>
         <span class="brand" data-i18n="brand">AgriStrong</span>
       </div>
       <nav class="nav" id="navMenu">
         <a href="#" class="nav-link active" data-page="home" data-i18n="navHome">Home</a>
+        <a href="#" class="nav-link" data-page="technologies" data-i18n="navTech">Technologies</a>
         <a href="#" class="nav-link" data-page="explain" data-i18n="navExplain">Explanation</a>
         <a href="#" class="nav-link" data-page="game" data-i18n="navGame">Game</a>
         <a href="#" class="nav-link" data-page="login" data-i18n="navLogin">Login</a>
@@ -47,7 +48,7 @@
   </header>
 
   <main id="mainContent">
-    <!-- HOME SCREEN -->
+    <!-- HOME -->
     <section id="page-home" class="page active">
       <div class="hero">
         <div class="container">
@@ -55,47 +56,51 @@
           <p data-i18n="heroSub">Feeding the world while preserving the planet. Innovation, respect and productivity hand in hand.</p>
         </div>
       </div>
+      <!-- Missão + Cards -->
       <div class="section about">
         <div class="container">
           <h2 data-i18n="aboutTitle">Our Mission</h2>
-          <p data-i18n="aboutText">We connect technology, field knowledge and environmental responsibility to build a food system that is productive, fair and regenerative.</p>
+          <p data-i18n="aboutText">We connect technology, field knowledge and environmental responsibility to build a productive, fair and regenerative food system.</p>
         </div>
       </div>
       <div class="section cards-section">
         <div class="container">
           <h2 data-i18n="cardsTitle">Sustainable Practices</h2>
-          <div class="cards-grid">
-            <div class="card interactive-card"><div class="card-front"><h3 data-i18n="card1Title">Regenerative Soil</h3><span class="card-hint" data-i18n="cardHint">Click to expand</span></div><div class="card-back"><p data-i18n="card1Desc">Practices like no-till farming, cover crops and composting.</p></div></div>
-            <div class="card interactive-card"><div class="card-front"><h3 data-i18n="card2Title">Smart Water Use</h3><span class="card-hint" data-i18n="cardHint">Click to expand</span></div><div class="card-back"><p data-i18n="card2Desc">Drip irrigation, moisture sensors and rainwater harvesting.</p></div></div>
-            <div class="card interactive-card"><div class="card-front"><h3 data-i18n="card3Title">Agroforestry</h3><span class="card-hint" data-i18n="cardHint">Click to expand</span></div><div class="card-back"><p data-i18n="card3Desc">Integrating trees with crops and livestock.</p></div></div>
-            <div class="card interactive-card"><div class="card-front"><h3 data-i18n="card4Title">Renewable Energy</h3><span class="card-hint" data-i18n="cardHint">Click to expand</span></div><div class="card-back"><p data-i18n="card4Desc">Solar pumps, biodigesters and wind turbines.</p></div></div>
-          </div>
+          <div class="cards-grid" id="homeCardsGrid"></div>
         </div>
       </div>
     </section>
 
-    <!-- EXPLANATION SCREEN -->
-    <section id="page-explain" class="page">
-      <div class="container explain-content">
-        <h2 data-i18n="explainTitle">What is Sustainable Agriculture?</h2>
-        <p data-i18n="explainText1">Sustainable agriculture is the practice of farming using principles that protect the environment, public health, and animal welfare. It integrates three main goals: environmental health, economic profitability, and social equity.</p>
-        <p data-i18n="explainText2">From crop rotation and organic fertilizers to agroforestry and precision irrigation, every technique aims to produce food without depleting natural resources or harming ecosystems.</p>
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%232e7d32'/%3E%3Ccircle cx='200' cy='100' r='60' fill='%238bc34a'/%3E%3Ctext x='200' y='110' text-anchor='middle' fill='white' font-size='20'%3E🌱%3C/text%3E%3C/svg%3E" alt="Sustainable Farming" class="explain-img" />
+    <!-- TECHNOLOGIES (nova aba) -->
+    <section id="page-technologies" class="page">
+      <div class="container">
+        <h2 data-i18n="techTitle" style="text-align:center; color:#4caf50; margin-bottom:2rem;">Advanced Agricultural Technologies</h2>
+        <div class="tech-grid" id="techGrid"></div>
       </div>
     </section>
 
-    <!-- GAME SCREEN -->
+    <!-- EXPLANATION -->
+    <section id="page-explain" class="page">
+      <div class="container explain-content">
+        <h2 data-i18n="explainTitle">What is Sustainable Agriculture?</h2>
+        <p data-i18n="explainText1">Sustainable agriculture protects the environment, public health, and animal welfare by integrating environmental health, economic profitability, and social equity.</p>
+        <p data-i18n="explainText2">Modern techniques like precision farming, biological pest control, and water management allow us to produce more with less impact.</p>
+        <div class="explain-img">🌍🌱🚜</div>
+      </div>
+    </section>
+
+    <!-- GAME -->
     <section id="page-game" class="page">
       <div class="game-container">
         <h2 data-i18n="gameTitle">Catch the Rain!</h2>
-        <p data-i18n="gameDesc">Move the bucket with ← → arrow keys (or touch/drag on mobile) and collect raindrops to water the field.</p>
+        <p data-i18n="gameDesc">Move the bucket with ← → arrow keys (or touch/drag) and collect raindrops.</p>
         <canvas id="gameCanvas" width="400" height="500"></canvas>
         <div class="game-score" data-i18n="scoreLabel">Score: <span id="scoreDisplay">0</span></div>
         <button class="stylish-btn" id="restartGame" data-i18n="restartGame">Restart</button>
       </div>
     </section>
 
-    <!-- LOGIN SCREEN -->
+    <!-- LOGIN -->
     <section id="page-login" class="page">
       <div class="login-screen">
         <h2 data-i18n="loginTitle">Welcome Back</h2>
@@ -108,6 +113,15 @@
       </div>
     </section>
   </main>
+
+  <!-- Modal para detalhes das tecnologias -->
+  <div class="modal-overlay" id="infoModal">
+    <div class="modal">
+      <button class="modal-close" id="closeInfoModal">&times;</button>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="container">
