@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- Canvas da chuva (fica atrás de tudo) -->
+  <canvas id="rainCanvas"></canvas>
+
   <header class="header">
     <div class="container">
       <div class="logo">
@@ -19,7 +22,7 @@
         <a href="#about" data-i18n="navAbout">About</a>
         <a href="#sustainability" data-i18n="navSustain">Sustainability</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
-        <button class="btn-login" id="btnLogin" data-i18n="loginBtn">Login</button>
+        <button class="btn-login stylish-btn" id="btnLogin" data-i18n="loginBtn">Login</button>
       </nav>
       <div class="lang-switch">
         <button class="lang-btn active-lang" data-lang="en">EN</button>
@@ -33,24 +36,21 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="container">
         <h1 data-i18n="heroTitle">Strong & Sustainable Agriculture</h1>
         <p data-i18n="heroSub">Feeding the world while preserving the planet. Innovation, respect and productivity hand in hand.</p>
-        <a href="#about" class="btn-primary" data-i18n="heroCTA">Learn More</a>
+        <a href="#about" class="btn-primary stylish-btn" data-i18n="heroCTA">Learn More</a>
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="section about">
       <div class="container">
         <h2 data-i18n="aboutTitle">Our Mission</h2>
-        <p data-i18n="aboutText">We connect technology, field knowledge and environmental responsibility to build a food system that is productive, fair and regenerative. From soil health to smart irrigation, we believe in an agro that is economically viable and ecologically sound.</p>
+        <p data-i18n="aboutText">We connect technology, field knowledge and environmental responsibility to build a food system that is productive, fair and regenerative.</p>
       </div>
     </section>
 
-    <!-- Interactive Cards Section -->
     <section id="sustainability" class="section cards-section">
       <div class="container">
         <h2 data-i18n="cardsTitle">Sustainable Practices</h2>
@@ -61,7 +61,7 @@
               <span class="card-hint" data-i18n="cardHint">Click to expand</span>
             </div>
             <div class="card-back">
-              <p data-i18n="card1Desc">Practices like no-till farming, cover crops and composting that restore organic matter, sequester carbon and increase biodiversity.</p>
+              <p data-i18n="card1Desc">Practices like no-till farming, cover crops and composting that restore organic matter.</p>
             </div>
           </div>
           <div class="card interactive-card">
@@ -70,7 +70,7 @@
               <span class="card-hint" data-i18n="cardHint">Click to expand</span>
             </div>
             <div class="card-back">
-              <p data-i18n="card2Desc">Drip irrigation, moisture sensors and rainwater harvesting systems that reduce consumption and protect water sources.</p>
+              <p data-i18n="card2Desc">Drip irrigation, moisture sensors and rainwater harvesting.</p>
             </div>
           </div>
           <div class="card interactive-card">
@@ -79,7 +79,7 @@
               <span class="card-hint" data-i18n="cardHint">Click to expand</span>
             </div>
             <div class="card-back">
-              <p data-i18n="card3Desc">Integrating trees with crops and livestock creates resilient ecosystems, improves soil and diversifies production.</p>
+              <p data-i18n="card3Desc">Integrating trees with crops and livestock creates resilient ecosystems.</p>
             </div>
           </div>
           <div class="card interactive-card">
@@ -88,14 +88,13 @@
               <span class="card-hint" data-i18n="cardHint">Click to expand</span>
             </div>
             <div class="card-back">
-              <p data-i18n="card4Desc">Solar pumps, biodigesters and wind turbines lower carbon footprint and cut energy costs on the farm.</p>
+              <p data-i18n="card4Desc">Solar pumps, biodigesters and wind turbines lower carbon footprint.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section contact">
       <div class="container">
         <h2 data-i18n="contactTitle">Get in Touch</h2>
@@ -103,7 +102,7 @@
           <input type="text" placeholder="Your name" data-i18n-placeholder="namePlaceholder" required />
           <input type="email" placeholder="Your email" data-i18n-placeholder="emailPlaceholder" required />
           <textarea rows="4" placeholder="Your message" data-i18n-placeholder="msgPlaceholder" required></textarea>
-          <button type="submit" class="btn-primary" data-i18n="sendBtn">Send Message</button>
+          <button type="submit" class="btn-primary stylish-btn" data-i18n="sendBtn">Send Message</button>
         </form>
       </div>
     </section>
@@ -123,7 +122,7 @@
       <form id="loginForm">
         <input type="email" placeholder="Email" data-i18n-placeholder="emailLogin" required />
         <input type="password" placeholder="Password" data-i18n-placeholder="passLogin" required />
-        <button type="submit" class="btn-primary" data-i18n="loginSubmit">Login</button>
+        <button type="submit" class="btn-primary stylish-btn" data-i18n="loginSubmit">Login</button>
       </form>
       <p class="login-footer" data-i18n="loginFooter">Forgot password? <a href="#">Reset here</a></p>
     </div>
